@@ -1,0 +1,55 @@
+# Build results
+
+bin/
+obj/
+
+# User-specific files
+
+*.user
+*.rsuser
+*.suo
+
+# Rider / JetBrains
+
+.idea/
+
+# VS Code
+
+.vscode/
+
+# Visual Studio
+
+.vs/
+
+# Git
+
+.git
+.gitignore
+.gitattributes
+
+# Docker
+
+Dockerfile*
+docker-compose*
+
+# OS files
+
+*.log
+*.swp
+*.tmp
+*.cache
+*.DS_Store
+Thumbs.db
+
+# Node modules (if frontend exists)
+
+node_modules/
+
+# Test results
+
+TestResults/
+
+# NuGet packages (optional)
+
+*.nupkg
+packages/
