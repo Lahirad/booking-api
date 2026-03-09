@@ -1,0 +1,57 @@
+services:
+  bookify.apis:
+    image: ${DOCKER_REGISTRY-}bookifyapis
+    container_name: Bookify.apis
+    build:
+      context: .
+      dockerfile: src/Bookify.apis/Dockerfile
+    depends_on:
+      bookify-db:
+        condition: service_healthy
+
+  bookify-db:
+    image: postgres:16
+    container_name: Bookify.Db
+    environment:
+      - POSTGRES_DB=BookifyDB
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=Medgulf123
+    volumes:
+      - ./.containers/database:/var/lib/postgresql/data
+    ports:
+       - 5433:5432
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  bookify-idp:
+    image: quay.io/keycloak/keycloak:23.0.0
+    container_name: Bookify.Identity
+    command: start-dev --import-realm
+    environment:
+    - KEYCLOAK_ADMIN=admin
+    - KEYCLOAK_ADMIN_PASSWORD=admin
+    volumes:
+    - ./.containers/identity:/opt/keycloak/data
+    - ./.files/bookify-realm-export.json:/opt/keycloak/data/import/realm.json
+    ports:
+    - 18080:8080
+
+  bookify-seq:
+    image: datalust/seq:latest
+    container_name: Bookify.Seq
+    environment:
+      - ACCEPT_EULA=Y
+      - SEQ_FIRSTRUN_ADMINPASSWORD=admin123
+    ports:
+      - 5341:5341
+      - 8081:80
+  
+  bookify-redis:
+    image: redis:latest
+    container_name: Bookify.Redis
+    restart: always
+    ports:
+      - '6379:6379'
