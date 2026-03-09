@@ -15,7 +15,7 @@ namespace Bookify.Domain.Abstractions
         {
         }
 
-        public Guid Id { get; init; } 
+        public Guid Id { get; init; }
 
         public IReadOnlyList<IDomainEvent> GetDomainEvents()
         {
