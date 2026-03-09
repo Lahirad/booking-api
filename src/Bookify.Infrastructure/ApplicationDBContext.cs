@@ -61,7 +61,7 @@ namespace Bookify.Infrastructure
                     return domainEvents;
                 })
                 .Select(domainEvent => new OutboxMessage(
-                    Guid.NewGuid(),
+                    Guid.NewGuid(), 
                     _dateTimeProvider.UtcNow,
                     domainEvent.GetType().Name,
                      JsonConvert.SerializeObject(domainEvent, JsonSerializerSettings)))
