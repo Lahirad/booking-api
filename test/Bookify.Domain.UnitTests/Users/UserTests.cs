@@ -7,7 +7,7 @@ namespace Bookify.Domain.UnitTests.Users;
 public class UserTests 
 {
     [Fact]
-    public void Create_Should_SetPropertyValue()
+    public void Create_Should_SetPropertyValue() 
     {
         // Act
         var user = User.Create(UserData.FirstName, UserData.LastName, UserData.Email);
