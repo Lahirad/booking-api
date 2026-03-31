@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Bookify\Bookify.Domain\Bookify.Domain.csproj" />
+    <ProjectReference Include="..\..\Bookify.Domain\Bookify.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
