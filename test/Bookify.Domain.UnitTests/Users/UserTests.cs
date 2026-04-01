@@ -23,8 +23,11 @@ public class UserTests
     {
         // Act
         var user = User.Create(UserData.FirstName, UserData.LastName, UserData.Email);
+     
+        var domainEvent = user.GetDomainEvents().OfType<UserCreatedDomainEvents>().SingleOrDefault();
 
-       
+        domainEvent.UserId.Should().Be(user.Id);
+
     }
 
    
