@@ -24,7 +24,7 @@ namespace Bookify.Api.Controllers.Bookings
         {
             var query = new GetBookingQuery(id);
             var result = await _sender.Send(query, cancellationToken);
-            return Ok(result);
+            return Ok(result); 
         }
 
         [HttpPost]
