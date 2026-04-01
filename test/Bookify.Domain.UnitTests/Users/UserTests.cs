@@ -27,8 +27,5 @@ public class UserTests
         var domainEvent = user.GetDomainEvents().OfType<UserCreatedDomainEvents>().SingleOrDefault();
 
         domainEvent.UserId.Should().Be(user.Id);
-
     }
-
-   
 }
