@@ -8,7 +8,7 @@ using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace Bookify.Api.Controllers.Bookings
 {
-    [Route("api/bookings")]
+    [Route("api/v{version:apiVersion}/bookings")]
     [ApiController]
     public class BookingsController : ControllerBase
     {

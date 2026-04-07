@@ -6,9 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Bookify.apis.Controllers.Apartments
 {
-    [Authorize]
+    //[Authorize]
     [ApiController]
-    [Route("api/apartments/")]
+    [Route("api/v{version:apiVersion}/apartments")]
    
     public class ApartmentsController : ControllerBase
     {
@@ -24,6 +24,7 @@ namespace Bookify.apis.Controllers.Apartments
                                                             ,DateOnly endDate
                                                             ,CancellationToken cancellationToken)
         {
+            
             var query = new  SearchApartmentsQuery(starDate, endDate);
 
              var result = await _sender.Send(query, cancellationToken); 
