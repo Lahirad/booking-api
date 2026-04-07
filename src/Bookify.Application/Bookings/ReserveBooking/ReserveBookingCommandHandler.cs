@@ -27,13 +27,15 @@ namespace Bookify.Application.Bookings.ReserveBooking
                                             ,IApartementRepository apartementRepository
                                             ,IBookingRepository bookingRepository
                                             ,IUnitofWork unitOfWork
-                                            , PricingService pricingService)
+                                            , PricingService pricingService
+                                            ,IDateTimeProvider dateTimeProvider)
         {
             _userRepository = userRepository;
             _apartementRepository = apartementRepository;
             _bookingRepository = bookingRepository;
             _unitOfWork = unitOfWork;
             _pricingService = pricingService;
+            _dateTimeProvider = dateTimeProvider;
         }
         public async Task<Result<Guid>> Handle(ReserveBookingCommand request, CancellationToken cancellationToken)
         {

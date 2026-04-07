@@ -29,9 +29,9 @@ namespace Bookify.apis
             // Configure the HTTP request pipeline.
             //if (app.Environment.IsDevelopment())
             //{
-                app.UseSwagger(); // This requires the Swagger services to be added
-                app.UseSwaggerUI();
-                app.ApplyMigrations();
+                //app.UseSwagger(); // This requires the Swagger services to be added
+                //app.UseSwaggerUI();
+                //app.ApplyMigrations();
             // app.MapOpenApi();
             //app.SeedData();
                 
